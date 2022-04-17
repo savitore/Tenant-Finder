@@ -1,0 +1,31 @@
+<resources>
+    <string name="app_name">Tenant Finder</string>
+    <string name="textview">TextView</string>
+    <string name="type_of_property">Type of Property</string>
+    <string name="price">Price:</string>
+    <string name="string_price" />
+    <string name="address">Address:</string>
+    <string name="string_address" />
+    <string name="tenant_finder">TENANT FINDER</string>
+    <string name="forgot_password">Forgot Password?</string>
+    <string name="login">LOGIN</string>
+    <string name="sign_up">Sign up</string>
+    <string name="email">Email</string>
+    <string name="don_t_have_an_account">Don\'t have an account?</string>
+    <string name="password">Password</string>
+    <string name="back_to_login">Back to Login?</string>
+    <string name="proceed">Proceed</string>
+    <string-array name="type_of_property">
+        <item>Villa</item>
+        <item>Bungalow</item>
+        <item>Apartment</item>
+        <item>Farmhouse</item>
+        <item>Duplex</item>
+        <item>Pent house</item>
+        <item>Row house</item>
+        <item>Studio Flat</item>
+        <item>Detached House</item>
+        <item>Hut</item>
+        <item>Palace</item>
+    </string-array>
+</resources>

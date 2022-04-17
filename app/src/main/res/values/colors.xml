@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimaryDark">#3262c4</color>
+    <color name="colorBlack">#000000</color>
+    <color name="colorWhite">#FFFFFF</color>
+    <color name="colorpurple">#664CCC</color>
+    <color name="colorteal">#C11515</color>
+    <color name="colorpurple_200">#FFFFFF</color>
+    <color name="colorpurple_700">#664CCC</color>
+    <color name="colorteal_200">#C11515</color>
+    <color name="trans">#00000000</color>
+
+
+</resources>
