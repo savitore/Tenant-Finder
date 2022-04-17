@@ -45,7 +45,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder>
     public int getItemCount() {
         return user1ArrayList.size();
     }
-    public void filterlist(List filteredlist)
+    public void filterlist(ArrayList<User1> filteredlist)
     {
         user1ArrayList= (ArrayList<User1>) filteredlist;
         notifyDataSetChanged();
