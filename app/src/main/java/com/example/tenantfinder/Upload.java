@@ -34,7 +34,6 @@ public class Upload extends AppCompatActivity {
     private static final int PICK_IMAGE_REQUEST=1;
     private Button choose;
     private Button upload;
-    private EditText filename;
     private ImageView imageView;
     private ProgressBar progressBar;
     private Uri uri;
@@ -48,11 +47,10 @@ public class Upload extends AppCompatActivity {
         setContentView(R.layout.activity_upload);
         choose=findViewById(R.id.choosefile);
         upload=findViewById(R.id.upload);
-        filename=findViewById(R.id.enterfilename);
         imageView=findViewById(R.id.imageview);
         progressBar=findViewById(R.id.progressBarimage);
         storageReference= FirebaseStorage.getInstance().getReference("uploads");
-        databaseReference= FirebaseDatabase.getInstance().getReference("uploads");
+        databaseReference= FirebaseDatabase.getInstance().getReference("Uploads");
 
         choose.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -100,8 +98,12 @@ public class Upload extends AppCompatActivity {
                                 @Override
                                 public void onSuccess(Uri uri) {
                                     String photoLink = uri.toString();
+//                                    User1 user1=new User1(photoLink);
+//                                    String modelid= databaseReference.push().getKey();
+//                                    databaseReference.child(modelid).setValue(user1);
                                 }
                             });
+
                             Toast.makeText(Upload.this,"Upload successful!",Toast.LENGTH_LONG).show();
                             Intent intent= new Intent(Upload.this,AddProperty.class);
                             startActivity(intent);

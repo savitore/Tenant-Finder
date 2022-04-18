@@ -4,10 +4,12 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,6 +36,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder>
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
 
        User1 user= user1ArrayList.get(position);
+//       Glide.with(context).load(user1ArrayList.get(position).getImageUrl()).circleCrop().into(holder.imageView);
        holder.textViewhead.setText(user.Type);
        holder.textViewdesc.setText(user.price);
        holder.textViewaddress.setText(user.address);
@@ -58,6 +61,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder>
        public TextView textViewaddress;
        public TextView textViewdetails;
        public TextView textViewpho;
+//       ImageView imageView;
 
        public ViewHolder(@NonNull View itemView) {
            super(itemView);
@@ -66,6 +70,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder>
            textViewaddress=(TextView) itemView.findViewById(R.id.address);
            textViewdetails=(TextView) itemView.findViewById(R.id.details);
            textViewpho=(TextView) itemView.findViewById(R.id.phone);
+//           imageView=(ImageView) itemView.findViewById(R.id.image);
 
        }
    }

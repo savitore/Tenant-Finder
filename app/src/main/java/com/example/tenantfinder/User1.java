@@ -2,10 +2,28 @@ package com.example.tenantfinder;
 
 
 public class User1 extends ListItem {
-    String Type,address,price,phone,details;
+    String Type;
+    String address;
+    String price;
+    String phone;
+    String details;
+    String imageUrl;
 
-    public User1()
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
+    }
+
+    public User1(String s)
     {}
+    public User1()
+    {
+
+    }
 
     public void setType(String Type) {
         this.Type = Type;

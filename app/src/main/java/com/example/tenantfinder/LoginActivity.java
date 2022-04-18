@@ -25,9 +25,12 @@ import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.GoogleAuthCredential;
+import com.google.firebase.auth.GoogleAuthProvider;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class LoginActivity extends AppCompatActivity {
@@ -48,7 +51,10 @@ public class LoginActivity extends AppCompatActivity {
         password=findViewById(R.id.inputPassword2);
         button2=(Button)findViewById(R.id.button2);
         button=findViewById(R.id.google);
-        gso=new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestEmail().build();
+        gso=new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestIdToken(getString(R.string.default_web_client_id))
+                .requestEmail()
+                .build();
         gsc= GoogleSignIn.getClient(this, gso);
         progressBar1=(ProgressBar)findViewById(R.id.progressBar1);
         mAuth=FirebaseAuth.getInstance();
@@ -121,8 +127,6 @@ public class LoginActivity extends AppCompatActivity {
         }
         else
         {
-//            Intent intent= new Intent(this, MainActivity.class);
-//            startActivity(intent);
             progressBar1.setVisibility(View.GONE);
             mAuth.signInWithEmailAndPassword(user,user3)
                     .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
@@ -173,19 +177,48 @@ public class LoginActivity extends AppCompatActivity {
         {
             Task<GoogleSignInAccount> task= GoogleSignIn.getSignedInAccountFromIntent(data);
             try {
-                task.getResult(ApiException.class);
-                navigateToSecondActivity();
+//                task.getResult(ApiException.class);
+//                navigateToSecondActivity();
+                GoogleSignInAccount account=task.getResult(ApiException.class);
+                firebaseAuthWithGoogle(account.getIdToken());
             } catch (ApiException e) {
+                finish();
                 Toast.makeText(getApplicationContext(),"Something went wrong",Toast.LENGTH_SHORT).show();
             }
         }
     }
-    public void navigateToSecondActivity()
+    private void firebaseAuthWithGoogle(String idToken)
     {
-        finish();
-        Intent intent = new Intent(LoginActivity.this,MainActivity.class);
+        AuthCredential credential= GoogleAuthProvider.getCredential(idToken,null);
+        mAuth.signInWithCredential(credential)
+                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if(task.isSuccessful())
+                        {
+                            FirebaseUser user=mAuth.getCurrentUser();
+                            updateUI(user);
+                        }
+                        else
+                        {
+                            Toast.makeText(LoginActivity.this,""+task.getException(),Toast.LENGTH_SHORT).show();
+                            finish();
+                        }
+                    }
+                });
+    }
+    private void updateUI(FirebaseUser user)
+    {
+        Intent intent= new Intent(LoginActivity.this,MainActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
     }
+//    public void navigateToSecondActivity()
+//    {
+//        finish();
+//        Intent intent = new Intent(LoginActivity.this,MainActivity.class);
+//        startActivity(intent);
+//    }
     public void callForgetPassword(View view)
     {
         startActivity(new Intent(getApplicationContext(),ForgetPassword.class));

@@ -118,7 +118,7 @@
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/inputPassword2"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="@+id/inputPassword2"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.746"
@@ -126,8 +126,8 @@
 
     <TextView
         android:id="@+id/textViewSignUp"
-        android:layout_width="124dp"
-        android:layout_height="48dp"
+        android:layout_width="95dp"
+        android:layout_height="26dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:minHeight="48dp"
@@ -137,9 +137,11 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/dontHaveAnAccount"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.772" />
+        app:layout_constraintVertical_bias="0.748"
+        tools:ignore="TouchTargetSizeCheck,TouchTargetSizeCheck" />
 
     <ImageView
         android:id="@+id/google"
