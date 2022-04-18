@@ -20,9 +20,13 @@
     <item android:id="@+id/item1"
         android:title="View Profile"
         app:showAsAction="never" />
+    <item android:id="@+id/item3"
+        android:title="View Liked Properties"
+        app:showAsAction="never" />
     <item android:id="@+id/item2"
         android:title="Sign out"
         app:showAsAction="never" />
+
 
 
 </menu>

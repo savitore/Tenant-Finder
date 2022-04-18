@@ -94,6 +94,10 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent1 = new Intent(MainActivity.this, AddProperty.class);
                 startActivity(intent1);
                 return true;
+//            case R.id.item3:
+//                Intent intent3 = new Intent(MainActivity.this,ViewLiked.class);
+//                startActivity(intent3);
+//                return true;
             case R.id.item2:
                 signout();
                 break;
