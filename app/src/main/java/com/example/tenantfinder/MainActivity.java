@@ -202,4 +202,8 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void OnDefaultToggleClick(View view)
+    {
+        Toast.makeText(this,"Liked",Toast.LENGTH_SHORT).show();
+    }
 }
