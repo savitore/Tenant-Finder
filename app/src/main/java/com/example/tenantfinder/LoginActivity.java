@@ -49,7 +49,7 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         email=findViewById(R.id.inputEmail2);
         password=findViewById(R.id.inputPassword2);
-        button2=(Button)findViewById(R.id.button2);
+        button2 = (Button) findViewById(R.id.button2);
         button=findViewById(R.id.google);
         gso=new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestIdToken(getString(R.string.default_web_client_id))

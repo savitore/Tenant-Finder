@@ -50,6 +50,7 @@ public class MainActivity extends AppCompatActivity {
     ProgressDialog progressDialog;
     private SearchView searchView;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -109,11 +110,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getMenuInflater();
-
+        MenuInflater inflater = getMenuInflater();//inflater=reading the XML file that describes a layout (or GUI element)
+                                                 // and to create the actual objects that correspond to it, and thus make
+                                               // the object visible within an Android app
         inflater.inflate(R.menu.search_menu, menu);
 
         MenuItem searchItem = menu.findItem(R.id.actionSearch);
+
 
         SearchView searchView = (SearchView) searchItem.getActionView();
 
