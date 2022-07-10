@@ -9,7 +9,7 @@ This app will allow users to rent their property and find any other listed prope
 
 The application will allow the user to login to the app by two methods: 
 Using username and password &  
-Using their Google account
+using their Google account.
 In Login Page, there is also an option of "Forgot Password".
 Unregistered users can also register themselves by clicking on "Sign Up".
 
