@@ -1,15 +1,24 @@
 package com.example.tenantfinder;
 
 import android.content.Context;
+import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,6 +27,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder>
 {
     private Context context;
     static ArrayList<User1> user1ArrayList;
+    private FirebaseFirestore db= FirebaseFirestore.getInstance();
 
     public MyAdapter(ArrayList<User1> user1ArrayList, Context context) {
         this.user1ArrayList=user1ArrayList;
@@ -61,6 +71,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder>
        public TextView textViewaddress;
        public TextView textViewdetails;
        public TextView textViewpho;
+       ImageButton fav;
 //       ImageView imageView;
 
        public ViewHolder(@NonNull View itemView) {
@@ -70,9 +81,44 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder>
            textViewaddress=(TextView) itemView.findViewById(R.id.address);
            textViewdetails=(TextView) itemView.findViewById(R.id.details);
            textViewpho=(TextView) itemView.findViewById(R.id.phone);
+           fav=(ImageButton) itemView.findViewById(R.id.fav);
+           fav.setOnClickListener(new View.OnClickListener() {
+               boolean isPressed=false;
+               @Override
+               public void onClick(View view) {
+                   if(isPressed)
+                   {
+                       fav.setBackgroundResource(R.drawable.ic_baseline_favorite_24);
+//                       pushData();
+                   }
+                   else
+                   {
+                       fav.setBackgroundResource(R.drawable.ic_baseline_favorite_border_24);
+                   }
+                   isPressed=!isPressed;
+
+               }
+
+           });
+
 //           imageView=(ImageView) itemView.findViewById(R.id.image);
 
        }
    }
 
+//   private void pushData()
+//   {
+//       db.collection("Fav").document(db.collection("Fav").document().getId()).set(note)
+//               .addOnSuccessListener(new OnSuccessListener<Void>() {
+//                   @Override
+//                   public void onSuccess(Void unused) {
+//                   }
+//               })
+//               .addOnFailureListener(new OnFailureListener() {
+//                   @Override
+//                   public void onFailure(@NonNull Exception e) {
+////                       Log.d(TAG, e.toString());
+//                   }
+//               });
+//   }
 }

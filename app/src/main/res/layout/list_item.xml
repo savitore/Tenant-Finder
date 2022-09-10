@@ -149,8 +149,7 @@
             android:id="@+id/fav"
             android:layout_width="48dp"
             android:layout_height="48dp"
-            android:background="@drawable/toggle_selector"
-            android:onClick="OnDefaultToggleClick"
+            android:background="@drawable/ic_baseline_favorite_border_24"
             android:textOff=""
             android:textOn=""
             tools:ignore="SpeakableTextPresentCheck,SpeakableTextPresentCheck" />
