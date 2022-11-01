@@ -1,7 +1,4 @@
-# WOC_APP
-Tenant Finder App
-
-My project is Tenant Finder. I have choosen App development as I have a very keen interest in developing apps. I want to put my ideas into building new and unique apps.
+Tenant Finder
 
 This is an application that serves as a platform for finding a tenant. 
 If anyone is looking for a property, this app will show all the available properties and the necessary details. 
@@ -18,8 +15,8 @@ The application will allow the user to view the details of all the listed proper
 There will be a separate section in the app where users can add their property for rent. 
 There is also a search bar through which users can search the properties.
 There is also an option of Signing out of the app.
-I have completed Frontend of User Profile and Liked Properties.
 For add properties option, user is also able to upload the property image.
+
 
 TechStack:
 1)Android Studio
@@ -27,6 +24,5 @@ TechStack:
 3)Firebase Realtime Database
 4)Firebase Firestore
 5)Firebase Storage
-6)Frontend Components: Tab Layout using View Paper/Bottom Nav View, Recycler View for list.
+6)Frontend Components: Recycler View for list.
 
-I am very thankful to my mentors, Garvit Dua Sir and Bhavya Agrawal Sir for their constant support during Winter Of Code timeline.
